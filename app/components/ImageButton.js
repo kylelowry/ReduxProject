@@ -17,41 +17,33 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ViewPropTypes, Text, TouchableOpacity } from 'react-native';
+import { ViewPropTypes, Image, TouchableOpacity } from 'react-native';
 
 const propTypes = {
   onPress: PropTypes.func,
   disabled: PropTypes.bool,
-  style: Text.propTypes.style,
-  containerStyle: ViewPropTypes.style,
-  text: PropTypes.string,
-  activeOpacity: PropTypes.number
+  source: PropTypes.object,
+  style: ViewPropTypes.style,
+  containerStyle: ViewPropTypes.style
 };
 
-const Button = ({
-  onPress,
-  disabled,
-  style,
-  containerStyle,
-  text,
-  activeOpacity
+const ImageButton = ({
+  onPress, disabled, source, style, containerStyle
 }) => (
   <TouchableOpacity
     style={containerStyle}
     onPress={onPress}
     disabled={disabled}
-    activeOpacity={activeOpacity}
   >
-    <Text style={style}>{text}</Text>
+    <Image style={style} source={source} />
   </TouchableOpacity>
 );
 
-Button.propTypes = propTypes;
+ImageButton.propTypes = propTypes;
 
-Button.defaultProps = {
+ImageButton.defaultProps = {
   onPress() {},
-  disabled: false,
-  activeOpacity: 0.8
+  disabled: false
 };
 
-export default Button;
+export default ImageButton;
