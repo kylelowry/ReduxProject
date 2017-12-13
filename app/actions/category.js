@@ -17,36 +17,21 @@
  */
 import * as types from '../constants/ActionTypes';
 
-export function requestArticleList(
-  isRefreshing,
-  loading,
-  typeId,
-  isLoadMore,
-  page = 1
-) {
+export function requestTypeList() {
   return {
-    type: types.REQUEST_ARTICLE_LIST,
-    isRefreshing,
-    loading,
-    isLoadMore,
-    typeId,
-    page
+    type: types.REQUEST_TYPE_LIST
   };
 }
 
-export function fetchArticleList(isRefreshing, loading, isLoadMore = false) {
+export function fetchTypeList() {
   return {
-    type: types.FETCH_ARTICLE_LIST,
-    isRefreshing,
-    loading,
-    isLoadMore
+    type: types.FETCH_TYPE_LIST
   };
 }
 
-export function receiveArticleList(articleList, typeId) {
+export function receiveTypeList(typeList) {
   return {
-    type: types.RECEIVE_ARTICLE_LIST,
-    articleList,
-    typeId
+    type: types.RECEIVE_TYPE_LIST,
+    typeList
   };
 }
